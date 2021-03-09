@@ -1,0 +1,7 @@
+location="fr-central"
+location_short="frc"
+client_name="test"
+environment="test"
+stack="ci"
+resource_group_name="test-rg"
+subnet_ids = ["/subscriptions/aaaaa-bbbbb-ccccc-ddddd/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-subnet"]
