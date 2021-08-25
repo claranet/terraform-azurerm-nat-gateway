@@ -7,7 +7,8 @@ Common Azure terraform module to create a nat gateway and do the association wit
 ## Version compatibility
 
 | Module version | Terraform version | AzureRM version |
-|----------------|-------------------| --------------- |
+| -------------- | ----------------- | --------------- |
+| >= 5.x.x       | 0.15.x & 1.0.x    | >= 2.12         |
 | >= 4.x.x       | 0.13.x            | >= 2.12         |
 | >= 3.x.x       | 0.12.x            | >= 2.12         |
 | >= 2.x.x       | 0.12.x            | < 2.0           |
@@ -104,6 +105,27 @@ module "nat-gateway" {
 }
 ```
 
+<!-- BEGIN_TF_DOCS -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | >= 2.12 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_nat_gateway.natgw](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway) | resource |
+| [azurerm_nat_gateway_public_ip_association.pip-assoc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway_public_ip_association) | resource |
+| [azurerm_nat_gateway_public_ip_association.pip-assoc-custom-ips](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway_public_ip_association) | resource |
+| [azurerm_public_ip.pip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) | resource |
+| [azurerm_subnet_nat_gateway_association.subnet-assoc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_nat_gateway_association) | resource |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -132,11 +154,9 @@ module "nat-gateway" {
 | nat\_gateway\_name | Nat gateway Name |
 | nat\_gateway\_public\_ip\_ids | Id of public IPs |
 | nat\_gateway\_public\_ips | Public IPs associated to Nat Gateway |
-
+<!-- END_TF_DOCS -->
 ## Related documentation
 
 Azure NAT Gateway documentation: [docs.microsoft.com/en-us/azure/virtual-network/nat-gateway-resource](https://docs.microsoft.com/en-us/azure/virtual-network/nat-gateway-resource)
 
 Azure public IP documentation: [docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses)
-
-Terraform Nat Gateway resource documentation: [registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway)
