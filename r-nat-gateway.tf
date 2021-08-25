@@ -26,19 +26,19 @@ resource "azurerm_nat_gateway" "natgw" {
   )
 }
 
-resource "azurerm_nat_gateway_public_ip_association" "pip-assoc" {
+resource "azurerm_nat_gateway_public_ip_association" "pip_assoc" {
   count                = var.create_public_ip ? 1 : 0
   nat_gateway_id       = azurerm_nat_gateway.natgw.id
-  public_ip_address_id = azurerm_public_ip.pip.0.id
+  public_ip_address_id = azurerm_public_ip.pip[0].id
 }
 
-resource "azurerm_nat_gateway_public_ip_association" "pip-assoc-custom-ips" {
+resource "azurerm_nat_gateway_public_ip_association" "pip_assoc_custom_ips" {
   for_each             = toset(var.public_ip_ids)
   nat_gateway_id       = azurerm_nat_gateway.natgw.id
   public_ip_address_id = each.value
 }
 
-resource "azurerm_subnet_nat_gateway_association" "subnet-assoc" {
+resource "azurerm_subnet_nat_gateway_association" "subnet_assoc" {
   for_each       = toset(var.subnet_ids)
   nat_gateway_id = azurerm_nat_gateway.natgw.id
   subnet_id      = each.value
