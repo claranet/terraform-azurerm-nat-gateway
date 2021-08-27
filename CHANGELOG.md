@@ -1,3 +1,9 @@
+# v3.0.1/v4.0.1 - unreleased
+
+Changed
+  * AZ-532: Revamp README with latest `terraform-docs` tool
+  * AZ-530: Cleanup module, fix linter errors
+
 # v1.0.0/v3.0.0/v4.0.0 - 2021-03-09
 
 Added
