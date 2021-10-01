@@ -4,13 +4,14 @@
 
 Common Azure terraform module to create a nat gateway and do the association with subnet(s).
 
-## Version compatibility
+<!-- BEGIN_TF_DOCS -->
+## Global versioning rule for Claranet Azure modules
 
 | Module version | Terraform version | AzureRM version |
 | -------------- | ----------------- | --------------- |
-| >= 5.x.x       | 0.15.x & 1.0.x    | >= 2.12         |
-| >= 4.x.x       | 0.13.x            | >= 2.12         |
-| >= 3.x.x       | 0.12.x            | >= 2.12         |
+| >= 5.x.x       | 0.15.x & 1.0.x    | >= 2.0          |
+| >= 4.x.x       | 0.13.x            | >= 2.0          |
+| >= 3.x.x       | 0.12.x            | >= 2.0          |
 | >= 2.x.x       | 0.12.x            | < 2.0           |
 | <  2.x.x       | 0.11.x            | < 2.0           |
 
@@ -21,26 +22,7 @@ which set some terraform variables in the environment needed by this module.
 More details about variables set by the `terraform-wrapper` available in the [documentation](https://github.com/claranet/terraform-wrapper#environment).
 
 ```hcl
-locals {
-  network_security_group_names = ["nsg1", "nsg2", "nsg3"]
-
-  vnet_cidr = "10.0.1.0/24"
-
-  subnets = [
-    {
-      name              = "subnet1"
-      cidr              = ["10.0.1.0/26"]
-      vnet_name         = module.azure-network-vnet.virtual_network_name
-
-    },
-    {
-      name              = "subnet2"
-      cidr              = ["10.0.1.64/26"]
-      vnet_name         = module.azure-network-vnet.virtual_network_name
-    }
-  ]
-}
-module "azure-region" {
+module "azure_region" {
   source  = "claranet/regions/azurerm"
   version = "x.x.x"
 
@@ -51,61 +33,56 @@ module "rg" {
   source  = "claranet/rg/azurerm"
   version = "x.x.x"
 
-  location    = module.azure-region.location
+  location    = module.azure_region.location
   client_name = var.client_name
   environment = var.environment
   stack       = var.stack
 }
 
-
-module "azure-network-subnet" {
-  source  = "claranet/subnet/azurerm"
-  version = "x.x.x"
-
-  for_each = { for subnet in local.subnets : subnet.name => subnet }
-
-  environment         = var.environment
-  location_short      = module.azure-region.location_short
-  client_name         = var.client_name
-  stack               = var.stack
-  custom_subnet_name  = each.key
-
-  resource_group_name  = module.rg.resource_group_name
-  virtual_network_name = each.value.vnet_name
-  subnet_cidr_list     = each.value.cidr
-
-}
-
-module "azure-network-vnet" {
+module "azure_network_vnet" {
   source  = "claranet/vnet/azurerm"
   version = "x.x.x"
 
-  environment      = var.environment
-  location         = module.azure-region.location
-  location_short   = module.azure-region.location_short
-  client_name      = var.client_name
-  stack            = var.stack
-  custom_vnet_name = var.custom_vnet_name
-
+  environment         = var.environment
+  location            = module.azure_region.location
+  location_short      = module.azure_region.location_short
+  client_name         = var.client_name
+  stack               = var.stack
   resource_group_name = module.rg.resource_group_name
-  vnet_cidr           = [local.vnet_cidr]
+
+  vnet_cidr = ["10.0.1.0/24"]
 }
 
-module "nat-gateway" {
+module "azure_network_subnet" {
+  source  = "claranet/subnet/azurerm"
+  version = "x.x.x"
+
+  environment         = var.environment
+  location_short      = module.azure_region.location_short
+  client_name         = var.client_name
+  stack               = var.stack
+  resource_group_name = module.rg.resource_group_name
+
+  virtual_network_name = module.azure_network_vnet.virtual_network_name
+  subnet_cidr_list     = ["10.0.1.0/26"]
+}
+
+module "nat_gateway" {
   source  = "claranet/nat-gateway/azurerm"
   version = "x.x.x"
 
   client_name         = var.client_name
   environment         = var.environment
-  location            = module.azure-region.location
-  location_short      = module.azure-region.location_short
-  resource_group_name = module.rg.resource_group_name
+  location            = module.azure_region.location
+  location_short      = module.azure_region.location_short
   stack               = var.stack
-  subnet_ids          = [module.azure-network-subnet["subnet2"].subnet_id]
+  resource_group_name = module.rg.resource_group_name
+
+  subnet_ids = [module.azure_network_subnet.subnet_id]
 }
+
 ```
 
-<!-- BEGIN_TF_DOCS -->
 ## Providers
 
 | Name | Version |
