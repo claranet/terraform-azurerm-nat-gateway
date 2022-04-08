@@ -34,12 +34,6 @@ variable "name_prefix" {
   default     = ""
 }
 
-variable "extra_tags" {
-  description = "Extra tags to add"
-  type        = map(string)
-  default     = {}
-}
-
 variable "public_ip_custom_name" {
   description = "Custom name for public IP"
   type        = string
