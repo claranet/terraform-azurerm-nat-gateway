@@ -109,6 +109,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | client\_name | Client name/account used in naming | `string` | n/a | yes |
 | create\_public\_ip | Should we create a public IP or not? | `bool` | `true` | no |
+| default\_tags\_enabled | Option to enable or disable default tags | `bool` | `true` | no |
 | environment | Project environment | `string` | n/a | yes |
 | extra\_tags | Extra tags to add | `map(string)` | `{}` | no |
 | location | Azure region to use | `string` | n/a | yes |
