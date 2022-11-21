@@ -1,3 +1,8 @@
+# Unreleased
+
+Breaking
+  * AZ-515: Option to use Azure CAF naming provider to name resources
+
 # v4.1.0 - 2022-04-15
 
 Added
