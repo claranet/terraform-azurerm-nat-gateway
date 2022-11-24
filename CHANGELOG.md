@@ -2,6 +2,7 @@
 
 Added
   * AZ-XXX : Add public ip Domain dns label option
+  * AZ-XXX : Add public ip Reverse Fqdn option
 
 # v4.1.0 - 2022-04-15
 

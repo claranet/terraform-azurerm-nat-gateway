@@ -58,7 +58,7 @@ variable "public_ip_domain_name_label" {
   default     = null
 }
 
-variable "public_ip_domain_reverse_fqdn" {
+variable "public_ip_reverse_fqdn" {
   description = "Reverse Fqdn for Nat Gateway Public IP"
   type        = string
   default     = null
