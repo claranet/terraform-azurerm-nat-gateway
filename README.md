@@ -119,6 +119,7 @@ No modules.
 | nat\_gateway\_custom\_name | Custom name for Nat gateway | `string` | `null` | no |
 | nat\_gateway\_idle\_timeout | Idle timeout configuration in minutes for Nat Gateway | `number` | `4` | no |
 | public\_ip\_custom\_name | Custom name for public IP | `string` | `null` | no |
+| public\_ip\_domain\_name\_label | Dns label of public ip | `string` | `null` | no |
 | public\_ip\_ids | List of public ips to use. Create one ip if not provided | `list(string)` | `[]` | no |
 | public\_ip\_zones | Public ip Zones to configure. | `list(string)` | `null` | no |
 | resource\_group\_name | Name of the resource group to use | `string` | n/a | yes |

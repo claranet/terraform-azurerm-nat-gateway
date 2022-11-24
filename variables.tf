@@ -52,6 +52,12 @@ variable "public_ip_ids" {
   default     = []
 }
 
+variable "public_ip_domain_name_label" {
+  description = "Dns label of public ip"
+  type        = string
+  default     = null
+}
+
 variable "create_public_ip" {
   description = "Should we create a public IP or not?"
   type        = bool
