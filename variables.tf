@@ -53,7 +53,13 @@ variable "public_ip_ids" {
 }
 
 variable "public_ip_domain_name_label" {
-  description = "Dns label of public ip"
+  description = "Dns Domain Label for Nat Gateway Public IP"
+  type        = string
+  default     = null
+}
+
+variable "public_ip_domain_reverse_fqdn" {
+  description = "Reverse Fqdn for Nat Gateway Public IP"
   type        = string
   default     = null
 }
