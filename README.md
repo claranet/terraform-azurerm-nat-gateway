@@ -88,6 +88,7 @@ module "nat_gateway" {
 
 | Name | Version |
 |------|---------|
+| azurecaf | ~> 1.2, >= 1.2.22 |
 | azurerm | >= 2.12 |
 
 ## Modules
@@ -103,6 +104,8 @@ No modules.
 | [azurerm_nat_gateway_public_ip_association.pip_assoc_custom_ips](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway_public_ip_association) | resource |
 | [azurerm_public_ip.pip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) | resource |
 | [azurerm_subnet_nat_gateway_association.subnet_assoc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_nat_gateway_association) | resource |
+| [azurecaf_name.nat](https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/data-sources/name) | data source |
+| [azurecaf_name.pip_nat](https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/data-sources/name) | data source |
 
 ## Inputs
 
@@ -116,6 +119,7 @@ No modules.
 | location | Azure region to use | `string` | n/a | yes |
 | location\_short | Short name of Azure region to use | `string` | n/a | yes |
 | name\_prefix | Optional prefix for the generated name | `string` | `""` | no |
+| name\_suffix | Optional suffix for the generated name | `string` | `""` | no |
 | nat\_gateway\_custom\_name | Custom name for Nat gateway | `string` | `null` | no |
 | nat\_gateway\_idle\_timeout | Idle timeout configuration in minutes for Nat Gateway | `number` | `4` | no |
 | public\_ip\_custom\_name | Custom name for public IP | `string` | `null` | no |
@@ -124,6 +128,7 @@ No modules.
 | resource\_group\_name | Name of the resource group to use | `string` | n/a | yes |
 | stack | Project stack name | `string` | n/a | yes |
 | subnet\_ids | Ids of subnets to associate with the Nat Gateway | `list(string)` | n/a | yes |
+| use\_caf\_naming | Use the Azure CAF naming provider to generate default resource name. `nat_gateway_custom_name` override this if set. Legacy default name is used if this is set to `false`. | `bool` | `true` | no |
 
 ## Outputs
 

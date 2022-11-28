@@ -28,18 +28,6 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "name_prefix" {
-  description = "Optional prefix for the generated name"
-  type        = string
-  default     = ""
-}
-
-variable "public_ip_custom_name" {
-  description = "Custom name for public IP"
-  type        = string
-  default     = null
-}
-
 variable "public_ip_zones" {
   description = "Public ip Zones to configure."
   type        = list(string)
@@ -56,12 +44,6 @@ variable "create_public_ip" {
   description = "Should we create a public IP or not?"
   type        = bool
   default     = true
-}
-
-variable "nat_gateway_custom_name" {
-  description = "Custom name for Nat gateway"
-  type        = string
-  default     = null
 }
 
 variable "nat_gateway_idle_timeout" {
