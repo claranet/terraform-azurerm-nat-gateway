@@ -40,6 +40,18 @@ variable "public_ip_ids" {
   default     = []
 }
 
+variable "public_ip_domain_name_label" {
+  description = "DNS domain label for NAT Gateway public IP."
+  type        = string
+  default     = null
+}
+
+variable "public_ip_reverse_fqdn" {
+  description = "Reverse FQDN for NAT Gateway public IP."
+  type        = string
+  default     = null
+}
+
 variable "create_public_ip" {
   description = "Should we create a public IP or not?"
   type        = bool

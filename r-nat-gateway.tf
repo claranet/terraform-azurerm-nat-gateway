@@ -7,6 +7,9 @@ resource "azurerm_public_ip" "pip" {
   zones               = var.public_ip_zones
   sku                 = "Standard"
 
+  domain_name_label = var.public_ip_domain_name_label
+  reverse_fqdn      = var.public_ip_reverse_fqdn
+
   tags = merge(
     local.default_tags,
     var.extra_tags
