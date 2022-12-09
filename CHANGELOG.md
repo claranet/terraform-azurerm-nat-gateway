@@ -1,4 +1,4 @@
-# Unreleased
+# v5.0.0 - 2022-12-09
 
 Added
   * AZ-917 : Add public ip Domain dns label option
