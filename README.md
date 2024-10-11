@@ -100,7 +100,7 @@ module "nat_gateway" {
 | Name | Version |
 |------|---------|
 | azurecaf | ~> 1.2, >= 1.2.22 |
-| azurerm | >= 2.12 |
+| azurerm | ~> 3.0 |
 
 ## Modules
 
