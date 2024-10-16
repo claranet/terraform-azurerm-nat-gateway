@@ -1,3 +1,13 @@
+## 7.0.0 (2024-10-16)
+
+### ⚠ BREAKING CHANGES
+
+* **AZ-1088:** tf 1.3+ and AzureRM v3
+
+### Features
+
+* **AZ-1088:** tf 1.3+ and AzureRM v3 dc03a78
+
 ## 5.1.0 (2024-10-03)
 
 ### Features
