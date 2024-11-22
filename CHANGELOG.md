@@ -79,7 +79,7 @@
 Added
   * AZ-917 : Add public ip Domain dns label option
   * AZ-917 : Add public ip Reverse Fqdn option
-  
+
 Breaking
   * AZ-515: Option to use Azure CAF naming provider to name resources
   * AZ-515: Require Terraform 0.13+
