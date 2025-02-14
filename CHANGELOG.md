@@ -1,3 +1,26 @@
+## 8.0.1 (2025-02-14)
+
+### Bug Fixes
+
+* **pip:** update default Public IP naming with `natgw` suffix 5de558b
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.6 1315aa1
+* **deps:** update dependency opentofu to v1.8.8 dcc5de2
+* **deps:** update dependency opentofu to v1.9.0 a8000be
+* **deps:** update dependency pre-commit to v4.1.0 8f71bbf
+* **deps:** update dependency tflint to v0.55.0 b05c8a9
+* **deps:** update dependency trivy to v0.58.1 fedeb1e
+* **deps:** update dependency trivy to v0.58.2 c7bd616
+* **deps:** update dependency trivy to v0.59.1 14a8e35
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.19.0 c289d9b
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.20.0 0cb37e8
+* **deps:** update tools 01edda8
+* **deps:** update tools 7c4d0ca
+* update Github templates 6a910cd
+* update tflint config for v0.55.0 b7594c6
+
 ## 8.0.0 (2024-11-22)
 
 ### ⚠ BREAKING CHANGES
