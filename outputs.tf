@@ -21,9 +21,11 @@ output "public_ip_ids" {
 output "resource" {
   description = "Nat Gateway resource object."
   value       = azurerm_nat_gateway.main
+  sensitive   = true
 }
 
 output "resource_public_ips" {
   description = "Public IPs resources list object."
   value       = azurerm_public_ip.main
+  sensitive   = true
 }
