@@ -122,8 +122,10 @@ No modules.
 | public\_ip\_domain\_name\_label | DNS domain label for Nat Gateway public IP. | `string` | `null` | no |
 | public\_ip\_ids | List of public IPs to use. Create one IP if not provided. | `list(string)` | `[]` | no |
 | public\_ip\_reverse\_fqdn | Reverse FQDN for Nat Gateway public IP. | `string` | `null` | no |
+| public\_ip\_sku | SKU of the created public IP. Defaults to the Nat Gateway `sku_name`, which is the only supported combination. | `string` | `null` | no |
 | public\_ip\_zones | Public IP zones to configure. | `list(string)` | `null` | no |
 | resource\_group\_name | Name of the resource group to use. | `string` | n/a | yes |
+| sku\_name | SKU of the Nat Gateway. Possible values are `Standard` and `StandardV2`. A `StandardV2` Nat Gateway is zone-redundant and requires `StandardV2` public IPs. | `string` | `"Standard"` | no |
 | stack | Project stack name. | `string` | n/a | yes |
 | subnet\_ids | IDs of subnets to associate with the Nat Gateway. | `list(string)` | n/a | yes |
 
