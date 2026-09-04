@@ -5,7 +5,7 @@ resource "azurerm_public_ip" "main" {
   name                = local.public_ip_name
   resource_group_name = var.resource_group_name
   zones               = var.public_ip_zones
-  sku                 = "Standard"
+  sku                 = coalesce(var.public_ip_sku, var.sku_name)
 
   domain_name_label = var.public_ip_domain_name_label
   reverse_fqdn      = var.public_ip_reverse_fqdn
@@ -25,7 +25,7 @@ resource "azurerm_nat_gateway" "main" {
   location                = var.location
   name                    = local.name
   resource_group_name     = var.resource_group_name
-  sku_name                = "Standard"
+  sku_name                = var.sku_name
   idle_timeout_in_minutes = var.idle_timeout
 
   tags = merge(
