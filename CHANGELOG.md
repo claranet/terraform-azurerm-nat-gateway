@@ -1,3 +1,13 @@
+## 9.1.0 (2026-09-04)
+
+### Features
+
+* **GH-2:** ✨ make Nat Gateway SKU configurable 3e0b729
+
+### Miscellaneous Chores
+
+* **deps:** ⬆️ update tools 🔗 a85c6dd
+
 ## 9.0.0 (2026-08-25)
 
 ### ⚠ BREAKING CHANGES
